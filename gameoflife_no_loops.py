@@ -2,8 +2,8 @@ from itertools import product
 Alive, Dead = True, False
 CHECK_RANGE = range(-1, 2)
 STATE_TO_STR = {
-    Alive: '■',
-    Dead: '□',
+    Alive: '█',
+    Dead: '░',
 }
 
 class Game(object):
