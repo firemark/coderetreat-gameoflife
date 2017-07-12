@@ -1,6 +1,6 @@
 from itertools import product
 Alive, Dead = True, False
-CHECK_RANGE = range(-1, 2)
+CHECK_RANGE = range(-1, 2)  # [-1, 0, 1]
 STATE_TO_STR = {
     Alive: '█',
     Dead: '░',
@@ -24,7 +24,10 @@ class Game(object):
         return self.current_world.check(x, y)
 
     def change_states(self):
-        keys = product(range(0, self.width), range(0, self.height))
+        keys = product(
+                range(0, self.width),
+                range(0, self.height)
+        )
 
         def change_state(el):
             x, y = el
@@ -63,7 +66,7 @@ class World(object):
         state = self.get(x, y)
         decisions = {
             Alive: lambda: count in [3, 4],
-            Dead: lambda: count == 3
+            Dead: lambda: count == 3,
         }
         return decisions[state]()
 
